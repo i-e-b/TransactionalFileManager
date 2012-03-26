@@ -1,0 +1,9 @@
+bin
+obj
+*.user
+*.suo
+*.cache
+_ReSharper.ZPins
+*.ReSharper
+*.crunch*
+/packages
