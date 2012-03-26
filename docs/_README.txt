@@ -1,13 +1,3 @@
-What?
-======
-
-Copy of http://transactionalfilemgr.codeplex.com/
-for my own experimentation.
-
-
-Original Readme:
-================
-
 This solution contains Chinh Do's Transactional File Manager. Transaction File Manager 
 allows the inclusion of filesystem operations in a System.Transactions transaction.
 
@@ -37,4 +27,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-
