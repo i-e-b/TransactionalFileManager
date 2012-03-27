@@ -6,7 +6,7 @@ namespace System.IO.Transactions
     /// <summary>Provides two-phase commits/rollbacks/etc for a single <see cref="Transaction"/>.</summary>
     sealed class TxEnlistment : IEnlistmentNotification
     {
-        private readonly List<IRollbackableOperation> _journal = new List<IRollbackableOperation>();
+        private readonly List<IRollbackableOperation> journal = new List<IRollbackableOperation>();
 
         /// <summary>Initializes a new instance of the <see cref="TxEnlistment"/> class.</summary>
         /// <param name="tx">The Transaction.</param>
@@ -24,7 +24,7 @@ namespace System.IO.Transactions
         {
             operation.Execute();
 
-            _journal.Add(operation);
+            journal.Add(operation);
         }
 
         public void Commit(Enlistment enlistment)
@@ -52,9 +52,9 @@ namespace System.IO.Transactions
             try
             {
                 // Roll back journal items in reverse order
-                for (int i = _journal.Count - 1; i >= 0; i--)
+                for (int i = journal.Count - 1; i >= 0; i--)
                 {
-                    _journal[i].Rollback();
+                    journal[i].Rollback();
                 }
 
                 DisposeJournal();
@@ -69,15 +69,15 @@ namespace System.IO.Transactions
 
         private void DisposeJournal()
         {
-        	for (int i = _journal.Count - 1; i >= 0; i--)
+        	for (int i = journal.Count - 1; i >= 0; i--)
             {
-                var disposable = _journal[i] as IDisposable;
+                var disposable = journal[i] as IDisposable;
                 if (disposable != null)
                 {
                     disposable.Dispose();
                 }
 
-                _journal.RemoveAt(i);
+                journal.RemoveAt(i);
             }
         }
     }

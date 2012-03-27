@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Threading;
 using System.Transactions;
 using System.Xml;
@@ -17,13 +16,13 @@ namespace System.IO.Transactions.FileManagerTest
         public void TestInitialize()
         {
             _target = new TxFileManager();
-            _numTempFiles = Directory.GetFiles(Path.Combine(Path.GetTempPath(), "CdFileMgr")).Length;
+            _numTempFiles = Directory.GetFiles(FileUtils.TempFolder).Length;
         }
 
         [TearDown]
         public void TestCleanup()
         {
-            int numTempFiles = Directory.GetFiles(Path.Combine(Path.GetTempPath(), "CdFileMgr")).Length;
+            int numTempFiles = Directory.GetFiles(FileUtils.TempFolder).Length;
             Assert.AreEqual(_numTempFiles, numTempFiles, "Unexpected value for numTempFiles.");
         }
 
