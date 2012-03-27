@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Transactions;
 
-namespace ChinhDo.Transactions
+namespace System.IO.Transactions
 {
     /// <summary>
     /// File Resource Manager. Allows inclusion of file system operations in transactions.
@@ -142,26 +140,21 @@ namespace ChinhDo.Transactions
         /// <param name="path">The directory to get files.</param>
         /// <param name="handler">The <see cref="FileEventHandler"/> object to call on each file found.</param>
         /// <param name="recursive">if set to <c>true</c>, include files in sub directories recursively.</param>
-        public void GetFiles(string path, FileEventHandler handler, bool recursive)
+        public void GetFiles(string path, FileEventHandler handler, ref bool recursive)
         {
-            foreach (string fileName in Directory.GetFiles(path))
+            foreach (var fileName in Directory.GetFiles(path))
             {
-                bool cancel = false;
+                var cancel = false;
                 handler(fileName, ref cancel);
-                if (cancel)
-                {
-                    return;
-                }
+                if (cancel) return;
             }
 
             // Check subdirs
-            if (recursive)
-            {
-                foreach (string folderName in Directory.GetDirectories(path))
-                {
-                    GetFiles(folderName, handler, recursive);
-                }
-            }
+        	if (!recursive) return;
+        	foreach (var folderName in Directory.GetDirectories(path))
+        	{
+        		GetFiles(folderName, handler, ref recursive);
+        	}
         }
 
         /// <summary>Creates a temporary file name. File is not automatically created.</summary>
@@ -217,17 +210,17 @@ namespace ChinhDo.Transactions
 
         private static void EnlistOperation(IRollbackableOperation operation)
         {
-            Transaction tx = Transaction.Current;
-            TxEnlistment enlistment;
+            var tx = Transaction.Current;
 
-            lock (_enlistmentsLock)
+        	lock (_enlistmentsLock)
             {
                 if (_enlistments == null)
                 {
                     _enlistments = new Dictionary<string, TxEnlistment>();
                 }
 
-                if (!_enlistments.TryGetValue(tx.TransactionInformation.LocalIdentifier, out enlistment))
+            	TxEnlistment enlistment;
+            	if (!_enlistments.TryGetValue(tx.TransactionInformation.LocalIdentifier, out enlistment))
                 {
                     enlistment = new TxEnlistment(tx);
                     _enlistments.Add(tx.TransactionInformation.LocalIdentifier, enlistment);

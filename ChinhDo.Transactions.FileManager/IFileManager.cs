@@ -1,4 +1,4 @@
-namespace ChinhDo.Transactions
+namespace System.IO.Transactions
 {
     /// <summary>
     /// Classes implementing this interface provide methods to work with files.

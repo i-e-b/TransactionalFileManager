@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace ChinhDo.Transactions
+﻿namespace System.IO.Transactions
 {
     /// <summary>
     /// Creates a file, and writes the specified contents to it.
@@ -24,7 +22,7 @@ namespace ChinhDo.Transactions
         {
             if (File.Exists(path))
             {
-                string temp = FileUtils.GetTempFileName(Path.GetExtension(path));
+                var temp = FileUtils.GetTempFileName(Path.GetExtension(path));
                 File.Copy(path, temp);
                 backupPath = temp;
             }

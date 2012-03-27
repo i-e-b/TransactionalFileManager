@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace ChinhDo.Transactions
+﻿namespace System.IO.Transactions
 {
     /// <summary>
     /// Class that contains common code for those rollbackable file operations which need
@@ -14,7 +11,7 @@ namespace ChinhDo.Transactions
         // tracks whether Dispose has been called
         private bool disposed;
 
-        public SingleFileOperation(string path)
+    	protected SingleFileOperation(string path)
         {
             this.path = path;
         }
@@ -33,8 +30,8 @@ namespace ChinhDo.Transactions
         {
             if (backupPath != null)
             {
-                string directory = Path.GetDirectoryName(path);
-                if (!Directory.Exists(directory))
+                var directory = Path.GetDirectoryName(path);
+                if (directory != null && !Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
                 }
@@ -67,7 +64,7 @@ namespace ChinhDo.Transactions
             {
                 if (backupPath != null)
                 {
-                    FileInfo fi = new FileInfo(backupPath);
+                    var fi = new FileInfo(backupPath);
                     if (fi.IsReadOnly)
                     {
                         fi.Attributes = FileAttributes.Normal;

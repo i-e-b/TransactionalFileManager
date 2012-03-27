@@ -66,9 +66,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ChinhDo.Transactions.FileManager\ChinhDo.Transactions.FileManager.csproj">
+    <ProjectReference Include="..\ChinhDo.Transactions.FileManager\System.IO.Transactions.csproj">
       <Project>{E824ACBB-90C8-4C60-9D52-9C8020E98E3E}</Project>
-      <Name>ChinhDo.Transactions.FileManager</Name>
+      <Name>System.IO.Transactions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -97,7 +97,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)tools\nunitbootstrap.cmd" "$(SolutionDir)" "$(TargetPath)"
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

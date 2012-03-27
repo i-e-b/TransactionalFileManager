@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace ChinhDo.Transactions
+﻿namespace System.IO.Transactions
 {
     /// <summary>
     /// Rollbackable operation which takes a snapshot of a file. The snapshot is used to rollback the file later if needed.
@@ -17,12 +15,11 @@ namespace ChinhDo.Transactions
 
         public override void Execute()
         {
-            if (File.Exists(path))
-            {
-                string temp = FileUtils.GetTempFileName(Path.GetExtension(path));
-                File.Copy(path, temp);
-                backupPath = temp;
-            }
+        	if (!File.Exists(path)) return;
+
+        	var temp = FileUtils.GetTempFileName(Path.GetExtension(path));
+        	File.Copy(path, temp);
+        	backupPath = temp;
         }
     }
 }

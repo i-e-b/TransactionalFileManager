@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace ChinhDo.Transactions
+﻿namespace System.IO.Transactions
 {
     /// <summary>
     /// Creates all directories in the specified path.
@@ -22,8 +20,8 @@ namespace ChinhDo.Transactions
         public void Execute()
         {
             // find the topmost directory which must be created
-            string children = Path.GetFullPath(path).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
-            string parent = Path.GetDirectoryName(children);
+            var children = Path.GetFullPath(path).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
+            var parent = Path.GetDirectoryName(children);
             while (parent != null /* children is a root directory */
                 && !Directory.Exists(parent))
             {
@@ -31,16 +29,10 @@ namespace ChinhDo.Transactions
                 parent = Path.GetDirectoryName(children);
             }
 
-            if (Directory.Exists(children))
-            {
-                // nothing to do
-                return;
-            }
-            else
-            {
-                Directory.CreateDirectory(path);
-                backupPath = children;
-            }
+        	if (Directory.Exists(children)) return;
+
+        	Directory.CreateDirectory(path);
+        	backupPath = children;
         }
 
         public void Rollback()

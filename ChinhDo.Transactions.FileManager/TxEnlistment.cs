@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Transactions;
 
-namespace ChinhDo.Transactions
+namespace System.IO.Transactions
 {
     /// <summary>Provides two-phase commits/rollbacks/etc for a single <see cref="Transaction"/>.</summary>
     sealed class TxEnlistment : IEnlistmentNotification
@@ -70,10 +69,9 @@ namespace ChinhDo.Transactions
 
         private void DisposeJournal()
         {
-            IDisposable disposable;
-            for (int i = _journal.Count - 1; i >= 0; i--)
+        	for (int i = _journal.Count - 1; i >= 0; i--)
             {
-                disposable = _journal[i] as IDisposable;
+                var disposable = _journal[i] as IDisposable;
                 if (disposable != null)
                 {
                     disposable.Dispose();

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ChinhDo.Transactions
+namespace System.IO.Transactions
 {
     /// <summary>
     /// Classes implementing this interface provide methods to manipulate files.

@@ -5,7 +5,7 @@ using System.Transactions;
 using System.Xml;
 using NUnit.Framework;
 
-namespace ChinhDo.Transactions.FileManagerTest
+namespace System.IO.Transactions.FileManagerTest
 {
     [TestFixture]
     class FileManagerTest
