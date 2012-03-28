@@ -2,7 +2,7 @@
 {
     static class FileUtils
     {
-        internal static readonly string TempFolder = Path.Combine(Path.GetTempPath(), "TransactionalIO."+Path.GetRandomFileName());
+        internal static readonly string TempFolder = Path.Combine(Path.GetTempPath(), "TransactionalIO");
 
         /// <summary>
         /// Ensures that the folder that contains the temporary files exists.

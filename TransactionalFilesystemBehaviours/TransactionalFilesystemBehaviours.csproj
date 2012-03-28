@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Scaffold\IFileManager_tests.cs" />
     <Compile Include="Scaffold\MSpecWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WritingText.cs" />
