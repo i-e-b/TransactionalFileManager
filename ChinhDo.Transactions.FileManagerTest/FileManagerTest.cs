@@ -208,17 +208,14 @@ namespace System.IO.Transactions.FileManagerTest
             string f1 = _target.GetTempFileName();
             try
             {
-                const string contents = "abc";
-                File.WriteAllText(f1, contents);
+				const string contents = "abc";
+				File.WriteAllText(f1, contents);
 
-                using (TransactionScope scope1 = new TransactionScope())
-                {
-                    _target.Delete(f1);
-                }
+				using (new TransactionScope()) _target.Delete(f1);
 
-                Assert.IsTrue(File.Exists(f1), f1 + " should exist.");
-                Assert.AreEqual(contents, File.ReadAllText(f1), "Unexpected value from ReadAllText.");
-            }
+				Assert.IsTrue(File.Exists(f1), f1 + " should exist.");
+				Assert.AreEqual(contents, File.ReadAllText(f1), "Unexpected value from ReadAllText.");
+        	}
             finally
             {
                 File.Delete(f1);

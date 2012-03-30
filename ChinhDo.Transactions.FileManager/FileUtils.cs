@@ -23,7 +23,7 @@
         public static string GetTempFileName(string extension)
         {
             var g = Guid.NewGuid();
-            var retVal = Path.Combine(TempFolder, g.ToString().Substring(0, 16)) + extension;
+            var retVal = Path.Combine(TempFolder, g.ToString()) + extension;
 
             return retVal;
         }
