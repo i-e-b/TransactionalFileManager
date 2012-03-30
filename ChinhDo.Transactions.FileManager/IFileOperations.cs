@@ -25,6 +25,12 @@ namespace System.IO.Transactions
         /// </summary>
         /// <param name="path">The directory path to create.</param>
         void CreateDirectory(string path);
+		
+		/// <summary>
+		/// Creates a blank file
+		/// </summary>
+		/// <param name="path">The file to create</param>
+    	FileStream Create(string path);
 
         /// <summary>
         /// Deletes the specified file. An exception is not thrown if the file does not exist.

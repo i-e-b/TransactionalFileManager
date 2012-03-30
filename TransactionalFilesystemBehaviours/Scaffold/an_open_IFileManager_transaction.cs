@@ -4,9 +4,9 @@ using System.IO.Transactions;
 using System.Transactions;
 using Machine.Specifications;
 
-namespace WritingText.with
+namespace WritingText
 {
-	public class IFileManager_tests : ContextOf<IFileManager> 
+	public class an_open_IFileManager_transaction : ContextOf<IFileManager> 
 	{
 		protected static TransactionScope scope1;
 		protected static int old_temp_file_count;
@@ -19,6 +19,30 @@ namespace WritingText.with
 
 		Cleanup transactions =()=> scope1.Dispose();
 
+		public static int TempFileCount
+		{
+			get
+			{
+				if (!Directory.Exists(FileUtils.TempFolder)) return 0;
+				return Directory.GetFiles(FileUtils.TempFolder).Length;
+			}
+		}
+	}
+
+	
+
+	[Behaviors]
+	internal class cleans_up_temporary_files
+	{
+		protected static IFileManager subject;
+		protected static TransactionScope scope1;
+		protected static int old_temp_file_count;
+
+		It should_clean_up_temporary_files = () => {
+			scope1.Dispose();
+			TempFileCount.ShouldEqual(old_temp_file_count);
+		};
+		
 		public static int TempFileCount
 		{
 			get

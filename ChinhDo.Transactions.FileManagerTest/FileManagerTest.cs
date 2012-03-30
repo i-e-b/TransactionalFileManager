@@ -35,7 +35,7 @@ namespace System.IO.Transactions.FileManagerTest
 
             try
             {
-                using (TransactionScope scope1 = new TransactionScope())
+                using (var scope1 = new TransactionScope())
                 {
                     _target.AppendAllText(f1, contents);
                     scope1.Complete();
@@ -75,7 +75,7 @@ namespace System.IO.Transactions.FileManagerTest
         {
             string f1 = _target.GetTempFileName();
             const string contents = "qwerty";
-            using (TransactionScope sc1 = new TransactionScope())
+            using (var sc1 = new TransactionScope())
             {
                 _target.AppendAllText(f1, contents);
             }

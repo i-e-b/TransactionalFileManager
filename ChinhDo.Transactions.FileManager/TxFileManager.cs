@@ -64,7 +64,15 @@ namespace System.IO.Transactions
             }
         }
 
-        /// <summary>Deletes the specified file. An exception is not thrown if the file does not exist.</summary>
+    	public FileStream Create(string path)
+    	{
+    		if (!IsInTransaction()) return File.Create(path); 
+
+			EnlistOperation(new AppendAllTextOperation(path, ""));
+    		return File.OpenWrite(path);
+    	}
+
+    	/// <summary>Deletes the specified file. An exception is not thrown if the file does not exist.</summary>
         /// <param name="path">The file to be deleted.</param>
         public void Delete(string path)
         {
