@@ -53,6 +53,7 @@
     <Compile Include="Behaviours\FileSystemExceptions.cs" />
     <Compile Include="Behaviours\MovingFiles.cs" />
     <Compile Include="Behaviours\Snapshots.cs" />
+    <Compile Include="Behaviours\Transactions.cs" />
     <Compile Include="Scaffold\an_open_IFileManager_transaction.cs" />
     <Compile Include="Scaffold\MSpecWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
