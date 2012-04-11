@@ -4,9 +4,8 @@ using System.IO.Transactions;
 using System.Transactions;
 using Machine.Specifications;
 
-namespace WritingText
+namespace Scaffold
 {
-	[Subject("with an open IFileManager transaction")]
 	public class an_open_IFileManager_transaction : ContextOf<IFileManager> 
 	{
 		protected static TransactionScope scope1;

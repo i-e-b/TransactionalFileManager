@@ -50,11 +50,12 @@
     <Compile Include="Behaviours\CopyingFiles.cs" />
     <Compile Include="Behaviours\CreatingDirectories.cs" />
     <Compile Include="Behaviours\DeletingFiles.cs" />
+    <Compile Include="Behaviours\Editing files without a transaction\CopyingFiles.cs" />
     <Compile Include="Behaviours\FileSystemExceptions.cs" />
     <Compile Include="Behaviours\MovingFiles.cs" />
     <Compile Include="Behaviours\Snapshots.cs" />
     <Compile Include="Behaviours\Transactions.cs" />
-    <Compile Include="Scaffold\an_open_IFileManager_transaction.cs" />
+    <Compile Include="Scaffold\IFileManager_bases.cs" />
     <Compile Include="Scaffold\MSpecWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Behaviours\WritingText.cs" />
@@ -68,6 +69,7 @@
       <Name>System.IO.Transactions</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

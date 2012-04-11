@@ -2,7 +2,7 @@
 using System.IO;
 using System.Transactions;
 using Machine.Specifications;
-using WritingText;
+using Scaffold;
 
 namespace MovingFiles {
 	class When_moving_a_file : with.an_existing_file_and_a_new_non_existant_path {

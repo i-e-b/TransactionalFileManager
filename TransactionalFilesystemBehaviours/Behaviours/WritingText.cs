@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Transactions;
 using Machine.Specifications;
+using Scaffold;
 
 namespace WritingText {
 	class When_appending_text_to_a_file : with.a_non_existent_file {

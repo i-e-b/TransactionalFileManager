@@ -2,7 +2,7 @@
 using System.IO;
 using System.Transactions;
 using Machine.Specifications;
-using WritingText;
+using Scaffold;
 
 namespace DeletingFiles {
 	class When_deleting_a_file : with.an_existing_file {

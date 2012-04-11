@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Transactions;
 using Machine.Specifications;
-using WritingText;
+using Scaffold;
 
 namespace CreatingDirectories {
 	class When_I_get_a_new_temporary_directory : with.a_path_to_a_non_existent_directory

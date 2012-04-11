@@ -2,7 +2,7 @@
 using System.IO;
 using System.Transactions;
 using Machine.Specifications;
-using WritingText;
+using Scaffold;
 
 namespace Snapshots {
 	class When_creating_a_file_from_outside_the_manager_and_rolling_back : with.a_path_to_a_non_existent_file {

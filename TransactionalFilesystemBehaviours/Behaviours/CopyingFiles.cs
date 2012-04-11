@@ -2,11 +2,11 @@
 using System.IO;
 using System.Transactions;
 using Machine.Specifications;
-using WritingText;
+using Scaffold;
 
 namespace CopyingFiles {
 
-	class When_copying_a_file_inside_a_transaction : WritingText.with.a_source_path_and_a_destination_path
+	class When_copying_a_file_inside_a_transaction : with.a_source_path_and_a_destination_path
 	{
 		Because I_copy_the_source_file_then_complete_the_transaction = () =>
 		{
@@ -29,7 +29,7 @@ namespace CopyingFiles {
 		};
 	}
 
-	class When_copying_a_file_then_rolling_back_the_transaction : WritingText.with.a_source_path_and_a_destination_path
+	class When_copying_a_file_then_rolling_back_the_transaction : with.a_source_path_and_a_destination_path
 	{
 		Because I_copy_the_source_file_then_rollback_the_transaction = () =>
 		{

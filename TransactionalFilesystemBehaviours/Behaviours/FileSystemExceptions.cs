@@ -1,7 +1,7 @@
 ﻿#pragma warning disable 169 // ReSharper disable InconsistentNaming, CheckNamespace
 using System.IO;
 using Machine.Specifications;
-using WritingText;
+using Scaffold;
 
 // Feature: (is the folder I'm in)
 // Scenario: FileSystemExceptions
