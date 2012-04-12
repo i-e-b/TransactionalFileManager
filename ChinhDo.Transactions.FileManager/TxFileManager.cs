@@ -63,7 +63,9 @@ namespace System.IO.Transactions
                 Directory.CreateDirectory(path);
             }
         }
-
+		
+        /// <summary>Creates file at specified path, returning an open FileStream</summary>
+        /// <param name="path">The file path to create.</param>
     	public FileStream Create(string path)
     	{
     		if (!IsInTransaction()) return File.Create(path); 

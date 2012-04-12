@@ -47,18 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Behaviours\CopyingFiles.cs" />
-    <Compile Include="Behaviours\CreatingDirectories.cs" />
-    <Compile Include="Behaviours\DeletingFiles.cs" />
-    <Compile Include="Behaviours\Editing files without a transaction\CopyingFiles.cs" />
-    <Compile Include="Behaviours\FileSystemExceptions.cs" />
-    <Compile Include="Behaviours\MovingFiles.cs" />
-    <Compile Include="Behaviours\Snapshots.cs" />
-    <Compile Include="Behaviours\Transactions.cs" />
-    <Compile Include="Scaffold\IFileManager_bases.cs" />
+    <Compile Include="Behaviours\Working with transactions\CopyingFiles.cs" />
+    <Compile Include="Behaviours\Working with transactions\CreatingDirectories.cs" />
+    <Compile Include="Behaviours\Working with transactions\DeletingFiles.cs" />
+    <Compile Include="Behaviours\Working without a transaction\CopyingFiles.cs" />
+    <Compile Include="Behaviours\Working with transactions\FileSystemExceptions.cs" />
+    <Compile Include="Behaviours\Working with transactions\MovingFiles.cs" />
+    <Compile Include="Behaviours\Working with transactions\Snapshots.cs" />
+    <Compile Include="Behaviours\Working with transactions\Transactions.cs" />
+    <Compile Include="Behaviours\Working without a transaction\CreatingDirectories.cs" />
+    <Compile Include="Behaviours\Working without a transaction\DeletingFiles.cs" />
+    <Compile Include="Behaviours\Working without a transaction\MovingFiles.cs" />
+    <Compile Include="Scaffold\an_open_IFileManager_transaction.cs" />
     <Compile Include="Scaffold\MSpecWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Behaviours\WritingText.cs" />
+    <Compile Include="Behaviours\Working with transactions\WritingText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
